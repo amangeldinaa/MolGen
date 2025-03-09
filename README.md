@@ -9,6 +9,7 @@ MolGen is a GAN-based model to generate novel molecular structures from SMILES s
 
 ```bash
 pip install torch rdkit matplotlib allennlp
+```
 
 ## Usage
 
@@ -22,6 +23,7 @@ data = ["CCO", "CCN", "OCC", "CCOCC"]  # Example data
 model = MolGen(data)
 train_loader = model.create_dataloader(data, batch_size=128, shuffle=True)
 model.train_n_steps(train_loader, max_step=10000, evaluate_every=50)
+```
 
 ### Generating Molecules
 
@@ -31,6 +33,7 @@ To generate new molecules after training:
 generated_molecules = model.generate_n(10)
 for mol in generated_molecules:
     print(mol)
+```
 
 ### Evaluation
 
@@ -39,6 +42,7 @@ Evaluate model performance with:
 ```python
 score = model.evaluate_n(100)
 print(f"Evaluation score: {score}")
+```
 
 ## Model Architecture
 **Generator**: LSTM-based model that generates molecular sequences token by token.
